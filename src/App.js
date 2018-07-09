@@ -52,7 +52,19 @@ class App extends Component {
 
         // If user declines location permission
         const geoFail = () => {
-            this.setState({ showError: true, isLoading: false })
+            this.setState({ showError: true})
+        }
+
+        const brokenError = () => {
+            this.setState({ showError: true});
+        }
+
+        // What to do if location is found
+        if (navigator.geolocation) {
+            const gl = geolocation;
+            gl.getCurrentPosition(geoSuccess,geoFail);
+        } else {
+            brokenError();
         }
 
         navigator.geolocation.getCurrentPosition(
@@ -67,6 +79,10 @@ class App extends Component {
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
         );
     };
+
+    mapData(data){
+        console.log(data);
+    }
 
     render() {
         return (
