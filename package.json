@@ -7,20 +7,23 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
-},
-"repository": {
-  "type": "git",
-  "url": "git+https://github.com/tony2tones/webpack-4.git"
-},
-"keywords": [],
-"author": "",
-"license": "ISC",
-"bugs": {
-  "url": "https://github.com/tony2tones/webpack-4/issues"
-},
-"homepage": "https://github.com/tony2tones/webpack-4#readme",
-"devDependencies": {
-  "webpack": "^4.15.1",
-  "webpack-cli": "^3.0.8"
-}
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony2tones/webpack-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tony2tones/webpack-4/issues"
+  },
+  "homepage": "https://github.com/tony2tones/webpack-4#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
+  }
 }
