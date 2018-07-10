@@ -8,7 +8,7 @@ const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 
 class App extends Component {
     static apiUrl(latitude,longitude){
-        return `${baseURL}?lat=${latitude}$lon=${longitude}&appid=${apiKEY}`
+        return `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
     }
     constructor() {
         super();
