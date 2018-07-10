@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import ReactDOM from "react-dom";
 
+// Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 
@@ -30,7 +31,7 @@ class App extends Component {
         };
     }
 
-    omponentDidMount() {
+    componentDidMount() {
         // Get location, and cater for if location is provided
         const getLocation = ({ latitude, longitude }) => {
             request
@@ -61,7 +62,7 @@ class App extends Component {
 
         // What to do if location is found
         if (navigator.geolocation) {
-            const gl = geolocation;
+            const gl = navigator.geolocation;
             gl.getCurrentPosition(geoSuccess,geoFail);
         } else {
             brokenError();
