@@ -118,15 +118,6 @@ class App extends Component {
         } = this.state;
         return (
             <div>
-                <ul>
-                    <li>
-                        fTemp = {fTemp}
-                    </li>
-                    <li>
-                        fTemp max = {fTempMax}
-                    </li>
-                    
-                </ul>
                 <Weather 
                 fTemp = {fTemp}  
                 location = {location}
