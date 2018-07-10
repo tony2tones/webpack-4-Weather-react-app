@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import ReactDOM from "react-dom";
 
+import Weather from './Components/Weather';
+
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
@@ -124,6 +126,7 @@ class App extends Component {
                     </li>
                     
                 </ul>
+                <Weather />
             </div>
         )
     };
