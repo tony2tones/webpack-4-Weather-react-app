@@ -112,7 +112,8 @@ class App extends Component {
         const {
             weather: {
                 fTemp,
-                fTempMax
+                fTempMax,
+                location
             }
         } = this.state;
         return (
@@ -126,7 +127,10 @@ class App extends Component {
                     </li>
                     
                 </ul>
-                <Weather fTemp = {fTemp}  />
+                <Weather 
+                fTemp = {fTemp}  
+                location = {location}
+                />
             </div>
         )
     };
