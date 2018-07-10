@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Weather = () => (
+const Weather = (props) => (
     
     <div>
-        <p> Component checking </p>
+        <p>{props.fTemp}</p>
     </div>
     
 );

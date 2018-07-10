@@ -126,7 +126,7 @@ class App extends Component {
                     </li>
                     
                 </ul>
-                <Weather />
+                <Weather fTemp = {fTemp}  />
             </div>
         )
     };
