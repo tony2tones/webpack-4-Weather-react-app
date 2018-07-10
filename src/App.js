@@ -85,7 +85,13 @@ class App extends Component {
     };
 
     mapData(data){
+        const temp = data.main.temp;
+        const tempMax = data.main.temp_max;
+        const tempMin = data.main.temp_min;
+        const weatherNiceName = data.weather[0].description;
+        const location = data.name;
         console.log(data);
+        console.log(weatherNiceName + ' ' + location);
     }
 
     render() {
