@@ -96,7 +96,10 @@ class App extends Component {
             ...this.setState,
             weather: {
                 fTemp,
-                fTempMax
+                fTempMax,
+                fTempMin,
+                weatherNiceName,
+                location
 
             }
 
@@ -104,9 +107,23 @@ class App extends Component {
     }
 
     render() {
+        const {
+            weather: {
+                fTemp,
+                fTempMax
+            }
+        } = this.state;
         return (
             <div>
-                <p>React here! Toasty</p>
+                <ul>
+                    <li>
+                        fTemp = {fTemp}
+                    </li>
+                    <li>
+                        fTemp max = {fTempMax}
+                    </li>
+                    
+                </ul>
             </div>
         )
     };
