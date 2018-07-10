@@ -7,7 +7,7 @@ const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 
 class App extends Component {
-    static apiUrl(latitude,longitude){
+    static apiUrl(latitude, longitude) {
         return `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
     }
     constructor() {
@@ -56,17 +56,17 @@ class App extends Component {
 
         // If user declines location permission
         const geoFail = () => {
-            this.setState({ showError: true})
+            this.setState({ showError: true })
         }
 
         const brokenError = () => {
-            this.setState({ showError: true});
+            this.setState({ showError: true });
         }
 
         // What to do if location is found
         if (navigator.geolocation) {
             const gl = navigator.geolocation;
-            gl.getCurrentPosition(geoSuccess,geoFail);
+            gl.getCurrentPosition(geoSuccess, geoFail);
         } else {
             brokenError();
         }
@@ -84,14 +84,23 @@ class App extends Component {
         );
     };
 
-    mapData(data){
-        const temp = data.main.temp;
-        const tempMax = data.main.temp_max;
-        const tempMin = data.main.temp_min;
+    mapData(data) {
+        const fTemp = data.main.temp;
+        const fTempMax = data.main.temp_max;
+        const fTempMin = data.main.temp_min;
         const weatherNiceName = data.weather[0].description;
         const location = data.name;
         console.log(data);
         console.log(weatherNiceName + ' ' + location);
+        this.setState({
+            ...this.setState,
+            weather: {
+                fTemp,
+                fTempMax
+
+            }
+
+        });
     }
 
     render() {
