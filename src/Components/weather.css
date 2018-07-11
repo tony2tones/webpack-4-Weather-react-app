@@ -21,9 +21,17 @@ body {
   }
   
   .topper {
+      font-display: 20px;
     color:white;
     position: absolute;
     top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.topper2 {
+    color:white;
+    position: absolute;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -49,6 +57,14 @@ h3 {
     font-family: 'Lato', sans-serif; 
     font-size: 90px; 
     font-weight: 300; 
+    line-height: 58px; 
+    margin: 0 0 58px; 
+}
+h4 { 
+    color: #ffffff; 
+    font-family: 'Lato', sans-serif; 
+    font-size: 12px; 
+    font-weight: 30; 
     line-height: 58px; 
     margin: 0 0 58px; 
 }

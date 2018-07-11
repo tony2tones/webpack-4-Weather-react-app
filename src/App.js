@@ -118,10 +118,10 @@ class App extends Component {
         const {
             weather: {
                 cTemp,
-                cTempMax,
-                cTempMin,
                 weatherNiceName,
-                location
+                location,
+                cTempMax,
+                cTempMin
             }
         } = this.state;
         return (
@@ -130,6 +130,8 @@ class App extends Component {
                 cTemp = {cTemp}  
                 location = {location}
                 weatherNiceName = {weatherNiceName}
+                cTempMax = {cTempMax}
+                cTempMin = {cTempMin}
                 />
             </div>
         )
