@@ -12,6 +12,9 @@ class App extends Component {
     static apiUrl(latitude, longitude) {
         return `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
     }
+    static convertKelvinToCel(deg) {
+        return Math.round(parseInt(deg, 10) - 273.15);
+      }
     constructor() {
         super();
         this.state = {
@@ -90,37 +93,43 @@ class App extends Component {
         const fTemp = data.main.temp;
         const fTempMax = data.main.temp_max;
         const fTempMin = data.main.temp_min;
+        const cTemp = App.convertKelvinToCel(fTemp);
+        const cTempMax = App.convertKelvinToCel(fTempMax);
+        const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description;
         const location = data.name;
-        console.log(data);
-        console.log(weatherNiceName + ' ' + location);
+        
         this.setState({
             ...this.setState,
             weather: {
                 fTemp,
                 fTempMax,
                 fTempMin,
+                cTemp,
+                cTempMax,
+                cTempMin,
                 weatherNiceName,
                 location
-
             }
-
         });
     }
 
     render() {
         const {
             weather: {
-                fTemp,
-                fTempMax,
+                cTemp,
+                cTempMax,
+                cTempMin,
+                weatherNiceName,
                 location
             }
         } = this.state;
         return (
             <div>
                 <Weather 
-                fTemp = {fTemp}  
+                cTemp = {cTemp}  
                 location = {location}
+                weatherNiceName = {weatherNiceName}
                 />
             </div>
         )

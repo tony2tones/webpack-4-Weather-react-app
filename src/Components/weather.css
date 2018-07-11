@@ -15,10 +15,27 @@
     justify-content: center;
   }
   
+  .topper {
+    color:white;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
   .centered {
     color:white;
     position: absolute;
-    top: 30%;
+    top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+h3 { 
+    color: #ffffff; 
+    font-family: 'Lato', sans-serif; 
+    font-size: 90px; 
+    font-weight: 300; 
+    line-height: 58px; 
+    margin: 0 0 58px; 
 }
