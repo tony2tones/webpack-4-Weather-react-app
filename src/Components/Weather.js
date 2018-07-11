@@ -9,7 +9,7 @@ const Weather = (props) => (
             <h4 className="topper">{props.location}</h4> 
             <h4 className="topper2">{props.weatherNiceName}</h4>
             <h3 className="centered">{props.cTemp}°</h3>
-            
+            <p>{props.cTempMax}° /{props.cTempMin}°</p>
             <p><button>REFRESH</button></p>
         </div>
     </div>
