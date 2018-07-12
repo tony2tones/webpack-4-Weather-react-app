@@ -5,6 +5,7 @@ import "./Weather.css";
 const Weather = (props) => (
     <div className="wrapper">
         <div className="card">
+        <div>{props.time}</div>
             <div>
                 <img src='https://www.farmersalmanac.com/wp-content/uploads/2009/08/blueMoon2-600x398.jpg' alt="moon image" width="370px" height="300px"></img>
             </div>

@@ -3,6 +3,7 @@ import request from 'superagent';
 import ReactDOM from "react-dom";
 
 import Weather from './Components/Weather';
+import Time from './Components/Time/Time';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -14,7 +15,7 @@ class App extends Component {
     }
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
-      }
+    }
     constructor() {
         super();
         this.state = {
@@ -25,6 +26,7 @@ class App extends Component {
             longitude: null,
             error: null,
             showError: false,
+            curTime: '00:00',
             weather: {
                 cTemp: '',
                 fTemp: '',
@@ -38,8 +40,13 @@ class App extends Component {
             },
         };
     }
-
     componentDidMount() {
+        setInterval(() => {
+            this.setState({
+                curTime: new Date().getHours() + ':' + new Date().getMinutes()
+            })
+        }, 1000)
+
         // Get location, and cater for if location is provided
         const getLocation = ({ latitude, longitude }) => {
             request
@@ -99,7 +106,7 @@ class App extends Component {
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
         console.log(data);
-        
+
         this.setState({
             ...this.setState,
             weather: {
@@ -117,6 +124,7 @@ class App extends Component {
 
     render() {
         const {
+            curTime,
             weather: {
                 cTemp,
                 weatherNiceName,
@@ -127,13 +135,16 @@ class App extends Component {
         } = this.state;
         return (
             <div>
-                <Weather 
-                cTemp = {cTemp}  
-                location = {location}
-                weatherNiceName = {weatherNiceName}
-                cTempMax = {cTempMax}
-                cTempMin = {cTempMin}
+                <Weather
+                    cTemp={cTemp}
+                    location={location}
+                    weatherNiceName={weatherNiceName}
+                    cTempMax={cTempMax}
+                    cTempMin={cTempMin}
+                    time={curTime}
                 />
+                {/* <Time time={curTime} /> */}
+
             </div>
         )
     };
