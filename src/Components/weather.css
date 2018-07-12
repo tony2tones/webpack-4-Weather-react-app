@@ -3,8 +3,6 @@
     width: 95%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 .card {
     box-shadow: 0 4px 8px 0 rgba(20, 19, 19, 0.534);
@@ -42,23 +40,6 @@
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-h3 { 
-    color: #ffffff; 
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 90px; 
-    font-weight: 550; 
-    line-height: 58px; 
-    margin: 0 0 58px; 
-}
-h2 { 
-    color: #ffffff; 
-    font-family: 'Arial', sans-serif; 
-    font-size: 12px; 
-    font-weight: 30; 
-    line-height: 58px; 
-    margin: 0 0 58px; 
 }
 
 button {
