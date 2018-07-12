@@ -47,22 +47,22 @@ body {
   .centered {
     color:white;
     position: absolute;
-    top: 44%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 h3 { 
     color: #ffffff; 
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Arial', sans-serif; 
     font-size: 90px; 
-    font-weight: 300; 
+    font-weight: 500; 
     line-height: 58px; 
     margin: 0 0 58px; 
 }
-h4 { 
+h2 { 
     color: #ffffff; 
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Arial', sans-serif; 
     font-size: 12px; 
     font-weight: 30; 
     line-height: 58px; 

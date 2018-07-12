@@ -98,6 +98,7 @@ class App extends Component {
         const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description;
         const location = data.name;
+        console.log(data);
         
         this.setState({
             ...this.setState,
