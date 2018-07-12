@@ -1,29 +1,26 @@
-body {
-    background-color:grey;
-}
-.card {
-    box-shadow: 0 4px 8px 0 rgba(20, 19, 19, 0.534);
-    width: 450px;
-    margin: auto;
-    text-align: center;
-    height: 512px;
-    background-color:white;
-}
-
 .wrapper{
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: 95%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color:grey;
   }
+.card {
+    box-shadow: 0 4px 8px 0 rgba(20, 19, 19, 0.534);
+    width: 400;
+    margin: auto;
+    text-align: center;
+    height: 512px;
+    background-color:white;
+}
   
-  .topper {
+  .location {
     font-display: 20px;
     color:white;
     font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
     position: absolute;
     top: 36%;
     left: 50%;
@@ -31,21 +28,12 @@ body {
 }
 .topper2 {
     color:rgb(209, 204, 204);
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Marker Felt', sans-serif;
     position: absolute;
     top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-.location {
-    color:white;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
   .centered {
     color: #ffffff; 
     font-family: 'Titillium Web', sans-serif;

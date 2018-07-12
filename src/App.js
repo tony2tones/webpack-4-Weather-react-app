@@ -96,8 +96,8 @@ class App extends Component {
         const cTemp = App.convertKelvinToCel(fTemp);
         const cTempMax = App.convertKelvinToCel(fTempMax);
         const cTempMin = App.convertKelvinToCel(fTempMin);
-        const weatherNiceName = data.weather[0].description;
-        const location = data.name;
+        const weatherNiceName = data.weather[0].description.toUpperCase();
+        const location = data.name.toUpperCase();
         console.log(data);
         
         this.setState({
