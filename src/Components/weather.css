@@ -21,8 +21,9 @@ body {
   }
   
   .topper {
-      font-display: 20px;
+    font-display: 20px;
     color:white;
+    font-family: 'Titillium Web', sans-serif;
     position: absolute;
     top: 36%;
     left: 50%;
@@ -30,6 +31,7 @@ body {
 }
 .topper2 {
     color:rgb(209, 204, 204);
+    font-family: 'Titillium Web', sans-serif;
     position: absolute;
     top: 38%;
     left: 50%;
@@ -45,7 +47,10 @@ body {
 }
 
   .centered {
-    color:white;
+    color: #ffffff; 
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 90px; 
+    font-weight: 550; 
     position: absolute;
     top: 46%;
     left: 50%;
@@ -54,9 +59,9 @@ body {
 
 h3 { 
     color: #ffffff; 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
     font-size: 90px; 
-    font-weight: 500; 
+    font-weight: 550; 
     line-height: 58px; 
     margin: 0 0 58px; 
 }
