@@ -22,7 +22,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.topper2 {
+.WeatherName {
     color:rgb(209, 204, 204);
     font-family: 'Marker Felt', sans-serif;
     position: absolute;
@@ -51,6 +51,6 @@ button {
     padding: 8px;
 }
 
-.button:hover, .button:hover {
+button:hover, button:hover {
     opacity: 0.7;
 }
