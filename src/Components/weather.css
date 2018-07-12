@@ -5,18 +5,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:grey;
   }
 .card {
     box-shadow: 0 4px 8px 0 rgba(20, 19, 19, 0.534);
-    width: 400;
+    width: 400px;
     margin: auto;
     text-align: center;
     height: 512px;
     background-color:white;
 }
   
-  .location {
+.location {
     font-display: 20px;
     color:white;
     font-family: 'Titillium Web', sans-serif;
