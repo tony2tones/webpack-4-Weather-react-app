@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import ReactDOM from "react-dom";
 
-import Weather from './Components/Weather';
-import Time from './Components/Time/Time';
+import Weather from './Components/Weather/Weather';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -26,7 +25,7 @@ class App extends Component {
             longitude: null,
             error: null,
             showError: false,
-            curTime: '00:00',
+            curTime: '',
             weather: {
                 cTemp: '',
                 fTemp: '',
@@ -143,8 +142,6 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                 />
-                {/* <Time time={curTime} /> */}
-
             </div>
         )
     };
