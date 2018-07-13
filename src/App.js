@@ -7,8 +7,12 @@ import Weather from './Components/Weather/Weather';
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
+const apiForeCast = 'http://api.openweathermap.org/data/2.5/forecast';
 
 class App extends Component {
+    static foreCast(latitude, longitude) {
+        return `${apiForeCast}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
+    }
     static apiUrl(latitude, longitude) {
         return `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
     }
@@ -58,11 +62,23 @@ class App extends Component {
                     // err.message, err.response
                 });
         };
+        const getLocation1 = ({ latitude, longitude }) => {
+            request
+                .get(App.apiForeCast(latitude, longitude))
+                .set('accept', 'json')
+                .then((res) => {
+                    this.mapForecastData(res.body);
+                })
+                .catch(() => {
+                    // err.message, err.response
+                });
+        };
 
         // This is if user accept location permission
         const geoSuccess = ({ coords }) => {
             this.setState({ showError: false });
             getLocation(coords);
+            getLocation1(coords);
         }
 
         // If user declines location permission
@@ -94,7 +110,9 @@ class App extends Component {
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
         );
     };
-
+    mapForecastData(data){
+        console.log(data);
+    }
     mapData(data) {
         const fTemp = data.main.temp;
         const fTempMax = data.main.temp_max;
@@ -104,7 +122,7 @@ class App extends Component {
         const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
-        console.log(data);
+        // console.log(data);
 
         this.setState({
             ...this.setState,
