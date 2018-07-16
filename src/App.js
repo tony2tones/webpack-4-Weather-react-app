@@ -40,6 +40,7 @@ class App extends Component {
                 fTempMax: '',
                 location: '',
                 icon: '',
+                tomorrowWeather: '',
             },
         };
     }
@@ -111,7 +112,9 @@ class App extends Component {
         );
     };
     mapForecastData(data){
+        const tomorrowWeather = data.list[2].main.temp_max;
         console.log(data);
+        console.log(tomorrowWeather);
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -122,7 +125,6 @@ class App extends Component {
         const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
-        // console.log(data);
 
         this.setState({
             ...this.setState,
