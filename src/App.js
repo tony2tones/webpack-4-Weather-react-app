@@ -26,10 +26,8 @@ class App extends Component {
     //         weekday = new Date(day.time * 1e3).getDay();
     //         }
     //     })
-    // });
-
-        
-    }
+    // });    
+    
     constructor() {
         super();
         this.state = {
