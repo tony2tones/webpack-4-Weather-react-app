@@ -20,6 +20,16 @@ class App extends Component {
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
     }
+    // static getWeekDay(data) {
+    //     this.setState({
+    //         weekday:data.list.slice(0,7).map(function(day) {
+    //         weekday = new Date(day.time * 1e3).getDay();
+    //         }
+    //     })
+    // });
+
+        
+    }
     constructor() {
         super();
         this.state = {
@@ -43,6 +53,7 @@ class App extends Component {
                 icon: '',
                 fTomorrowWeather: '',
                 cTomorrowWeather: '',
+                weekday: [],
             },
         };
     }
@@ -118,7 +129,8 @@ class App extends Component {
     mapForecastData(data) {
         const fTomorrowWeather = data.list[1].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
-        console.log(data);
+        const weekday = App.getWeekDay(data);
+        console.log(weekday);
         this.setState({
             ...this.setState,
             weather: {
