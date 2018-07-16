@@ -14,8 +14,8 @@ const Weather = (props) => (
             <div className="WeatherName">{props.weatherNiceName}</div>
             <div className="centered">{props.cTemp}°</div>
             <p>{props.cTempMax}° /{props.cTempMin}°</p>
-            <Forecast {...props.cTemp}/>
-            <button onClick={() => window.location.reload()}>REFRESH</button>
+            <Forecast cTomorrowWeather={props.cTomorrowWeather}/>
+            <button onClick={window.location.reload}>REFRESH</button>
         </div>
     </div>
 );

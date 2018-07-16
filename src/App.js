@@ -51,7 +51,7 @@ class App extends Component {
             this.setState({
                 curTime: new Date().getHours() + ':' + new Date().getMinutes()
             })
-        }, 1000)
+        }, 60000)
 
         // Get location, and cater for if location is provided
         const getLocation = ({ latitude, longitude }) => {
@@ -118,6 +118,13 @@ class App extends Component {
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
         console.log(cTomorrowWeather);
+        this.setState({
+            ...this.setState,
+            weather: {
+                ...this.state.weather,
+                cTomorrowWeather,
+            }
+        });
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -153,8 +160,10 @@ class App extends Component {
                 location,
                 cTempMax,
                 cTempMin,
+                cTomorrowWeather,
             }
         } = this.state;
+        console.log('This is tomorrows weather: ' , cTomorrowWeather);
         return (
             <div>
                 <Weather
@@ -164,9 +173,8 @@ class App extends Component {
                     cTempMax={cTempMax}
                     cTempMin={cTempMin}
                     time={curTime}
-                />
-                <Forecast
-                    // cTomorrowWeather={cTomorrowWeather}
+                    cTomorrowWeather={cTomorrowWeather}
+                    
                 />
 
             </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Forecast = () => {
+const Forecast = (props) => {
     return (
-        <div> testing 
+        <div> testing {props.cTomorrowWeather}
             </div>
     )
 }
