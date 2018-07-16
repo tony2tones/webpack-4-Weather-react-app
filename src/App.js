@@ -41,6 +41,7 @@ class App extends Component {
                 location: '',
                 icon: '',
                 fTomorrowWeather: '',
+                cTomorrowWeather: '',
             },
         };
     }
@@ -113,8 +114,9 @@ class App extends Component {
     };
     mapForecastData(data){
         const fTomorrowWeather = data.list[2].main.temp;
+        const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
-        console.log(fTomorrowWeather);
+        console.log(cTomorrowWeather);
     }
     mapData(data) {
         const fTemp = data.main.temp;
