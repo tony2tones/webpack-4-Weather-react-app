@@ -40,7 +40,7 @@ class App extends Component {
                 fTempMax: '',
                 location: '',
                 icon: '',
-                tomorrowWeather: '',
+                fTomorrowWeather: '',
             },
         };
     }
@@ -112,9 +112,9 @@ class App extends Component {
         );
     };
     mapForecastData(data){
-        const tomorrowWeather = data.list[2].main.temp_max;
+        const fTomorrowWeather = data.list[2].main.temp;
         console.log(data);
-        console.log(tomorrowWeather);
+        console.log(fTomorrowWeather);
     }
     mapData(data) {
         const fTemp = data.main.temp;
