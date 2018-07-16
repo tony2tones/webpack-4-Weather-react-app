@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Forecast from '../Forecast/Forecast';
 import "./Weather.css";
 
 const Weather = (props) => (
@@ -13,7 +14,7 @@ const Weather = (props) => (
             <div className="WeatherName">{props.weatherNiceName}</div>
             <div className="centered">{props.cTemp}°</div>
             <p>{props.cTempMax}° /{props.cTempMin}°</p>
-            <p>Gibberish</p>
+            <Forecast {...props.cTemp}/>
             <button onClick={() => window.location.reload()}>REFRESH</button>
         </div>
     </div>

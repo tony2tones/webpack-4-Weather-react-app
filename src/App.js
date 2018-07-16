@@ -3,6 +3,7 @@ import request from 'superagent';
 import ReactDOM from "react-dom";
 
 import Weather from './Components/Weather/Weather';
+import Forecast from './Components/Forecast/Forecast';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -112,7 +113,7 @@ class App extends Component {
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
         );
     };
-    mapForecastData(data){
+    mapForecastData(data) {
         const fTomorrowWeather = data.list[2].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
@@ -138,7 +139,7 @@ class App extends Component {
                 cTempMax,
                 cTempMin,
                 weatherNiceName,
-                location
+                location,
             }
         });
     }
@@ -151,7 +152,7 @@ class App extends Component {
                 weatherNiceName,
                 location,
                 cTempMax,
-                cTempMin
+                cTempMin,
             }
         } = this.state;
         return (
@@ -164,6 +165,10 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                 />
+                <Forecast
+                    // cTomorrowWeather={cTomorrowWeather}
+                />
+
             </div>
         )
     };
