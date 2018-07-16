@@ -4,9 +4,15 @@ import './forecast.css';
 
 const Forecast = (props) => {
     return (
-        <div className="grid">
-            <div id="item1">{props.cTomorrowWeather}</div>
-            <div id="item2">233</div>
+        <div>
+            <div className="grid">
+                <div>
+                    <p>Tomorrow</p>
+                    <div id="item1">
+                        {props.cTomorrowWeather}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
