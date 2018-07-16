@@ -46,6 +46,7 @@ class App extends Component {
             },
         };
     }
+
     componentDidMount() {
         setInterval(() => {
             this.setState({
@@ -113,11 +114,11 @@ class App extends Component {
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
         );
     };
+   
     mapForecastData(data) {
-        const fTomorrowWeather = data.list[2].main.temp;
+        const fTomorrowWeather = data.list[1].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
-        console.log(cTomorrowWeather);
         this.setState({
             ...this.setState,
             weather: {
@@ -163,7 +164,7 @@ class App extends Component {
                 cTomorrowWeather,
             }
         } = this.state;
-        console.log('This is tomorrows weather: ' , cTomorrowWeather);
+        
         return (
             <div>
                 <Weather
@@ -174,7 +175,6 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     cTomorrowWeather={cTomorrowWeather}
-                    
                 />
 
             </div>
