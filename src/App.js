@@ -10,8 +10,8 @@ const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 const apiForeCast = 'http://api.openweathermap.org/data/2.5/forecast';
 
 class App extends Component {
-    static foreCast(latitude, longitude) {
-        return `${apiForeCast}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
+    static apiForeCast(latitude, longitude) {
+        return `${apiForeCast}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
     }
     static apiUrl(latitude, longitude) {
         return `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
