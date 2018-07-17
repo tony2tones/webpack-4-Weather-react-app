@@ -127,7 +127,7 @@ class App extends Component {
     };
 
     mapForecastData(data) {
-        const time = data.list[0].dt_txt;
+        const time = data.list[0].dt * 1000;
         const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
@@ -138,6 +138,10 @@ class App extends Component {
                 ...this.state.weather,
                 time,
                 cTomorrowWeather,
+                // forecast : data.list.map(item => {
+                //     date : MediaStreamErrorEvent(item.dt * 1000),
+                //     temp: 
+                // })
             }
         });
     }
