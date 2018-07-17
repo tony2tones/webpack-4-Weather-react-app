@@ -20,6 +20,7 @@ class App extends Component {
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
     }
+
     // static getWeekDay(data) {
     //     this.setState({
     //         weekday:data.list.slice(0,7).map(function(day) {
@@ -27,7 +28,7 @@ class App extends Component {
     //         }
     //     })
     // });    
-    
+
     constructor() {
         super();
         this.state = {
@@ -40,6 +41,8 @@ class App extends Component {
             showError: false,
             curTime: '',
             weather: {
+                time: '',
+                toDay: '',
                 cTemp: '',
                 fTemp: '',
                 weatherNiceName: '',
@@ -51,7 +54,7 @@ class App extends Component {
                 icon: '',
                 fTomorrowWeather: '',
                 cTomorrowWeather: '',
-                weekday: [],
+                forecast: [],
             },
         };
     }
@@ -100,7 +103,7 @@ class App extends Component {
         );
     };
 
-    getLocation ({ latitude, longitude }){
+    getLocation({ latitude, longitude }) {
         request
             .get(App.apiUrl(latitude, longitude))
             .set('accept', 'json')
@@ -111,7 +114,7 @@ class App extends Component {
                 // err.message, err.response
             });
     };
-    getLocation1({ latitude, longitude }){
+    getLocation1({ latitude, longitude }) {
         request
             .get(App.apiForeCast(latitude, longitude))
             .set('accept', 'json')
@@ -122,16 +125,18 @@ class App extends Component {
                 // err.message, err.response
             });
     };
-   
+
     mapForecastData(data) {
-        const fTomorrowWeather = data.list[1].main.temp;
+        const time = data.list[0].dt_txt;
+        const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
-        const weekday = App.getWeekDay(data);
-        console.log(weekday);
+        console.log(data);
+        console.log('this is the date: ', time);
         this.setState({
             ...this.setState,
             weather: {
                 ...this.state.weather,
+                time,
                 cTomorrowWeather,
             }
         });
@@ -164,8 +169,6 @@ class App extends Component {
     render() {
         const {
             curTime,
-            latitude, 
-            longitude,
             weather: {
                 cTemp,
                 weatherNiceName,
@@ -173,9 +176,10 @@ class App extends Component {
                 cTempMax,
                 cTempMin,
                 cTomorrowWeather,
+                // toDay,
             }
         } = this.state;
-        
+
         return (
             <div>
                 <Weather
@@ -185,10 +189,10 @@ class App extends Component {
                     cTempMax={cTempMax}
                     cTempMin={cTempMin}
                     time={curTime}
+                    // toDay={toDay}
                     cTomorrowWeather={cTomorrowWeather}
                     onClick={this.getLocation}
                 />
-
             </div>
         )
     };

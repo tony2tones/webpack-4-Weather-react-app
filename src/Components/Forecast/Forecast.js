@@ -7,7 +7,7 @@ const Forecast = (props) => {
         <div>
             <div className="grid">
                 <div>
-                    <p>Tomorrow</p>
+                    {/* <p>{props.toDay}</p> */}
                     <div id="item1">
                         {props.cTomorrowWeather}
                     </div>
