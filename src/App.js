@@ -164,6 +164,8 @@ class App extends Component {
     render() {
         const {
             curTime,
+            latitude, 
+            longitude,
             weather: {
                 cTemp,
                 weatherNiceName,
@@ -184,7 +186,7 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     cTomorrowWeather={cTomorrowWeather}
-                    refresh={this.getLocation}
+                    onClick={this.getLocation}
                 />
 
             </div>
