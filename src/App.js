@@ -63,35 +63,11 @@ class App extends Component {
             })
         }, 60000)
 
-        // Get location, and cater for if location is provided
-        const getLocation = ({ latitude, longitude }) => {
-            request
-                .get(App.apiUrl(latitude, longitude))
-                .set('accept', 'json')
-                .then((res) => {
-                    this.mapData(res.body);
-                })
-                .catch(() => {
-                    // err.message, err.response
-                });
-        };
-        const getLocation1 = ({ latitude, longitude }) => {
-            request
-                .get(App.apiForeCast(latitude, longitude))
-                .set('accept', 'json')
-                .then((res) => {
-                    this.mapForecastData(res.body);
-                })
-                .catch(() => {
-                    // err.message, err.response
-                });
-        };
-
         // This is if user accept location permission
         const geoSuccess = ({ coords }) => {
             this.setState({ showError: false });
-            getLocation(coords);
-            getLocation1(coords);
+            this.getLocation(coords);
+            this.getLocation1(coords);
         }
 
         // If user declines location permission
@@ -122,6 +98,29 @@ class App extends Component {
             error => this.setState({ error: error.message }),
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
         );
+    };
+
+    getLocation ({ latitude, longitude }){
+        request
+            .get(App.apiUrl(latitude, longitude))
+            .set('accept', 'json')
+            .then((res) => {
+                this.mapData(res.body);
+            })
+            .catch(() => {
+                // err.message, err.response
+            });
+    };
+    getLocation1({ latitude, longitude }){
+        request
+            .get(App.apiForeCast(latitude, longitude))
+            .set('accept', 'json')
+            .then((res) => {
+                this.mapForecastData(res.body);
+            })
+            .catch(() => {
+                // err.message, err.response
+            });
     };
    
     mapForecastData(data) {
@@ -185,6 +184,7 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     cTomorrowWeather={cTomorrowWeather}
+                    refresh={this.getLocation}
                 />
 
             </div>
