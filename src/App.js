@@ -48,6 +48,12 @@ class App extends Component {
             showError: false,
             curTime: '',
             weather: {
+                temp1: '',
+                temp2: '',
+                temp3: '',
+                cTemp1: '',
+                cTemp2: '',
+                cTemp3: '',
                 time1: '',
                 time2: '',
                 time3: '',
@@ -140,12 +146,12 @@ class App extends Component {
     mapForecastData(data) {
         const time = data.list[0].dt;
         const laterTime = App.timeFormatter(time);
-        const fTime1 = data.list[0].main.temp;
-        const cTime1 = App.convertKelvinToCel(fTime1);
-        const fTime2 = data.list[1].main.temp;
-        const cTime2 = App.convertKelvinToCel(fTime2);
-        const fTime3 = data.list[2].main.temp;
-        const cTime3 = App.convertKelvinToCel(fTime3);
+        const temp1 = data.list[0].main.temp;
+        const cTemp1 = App.convertKelvinToCel(temp1);
+        const temp2 = data.list[1].main.temp;
+        const cTemp2 = App.convertKelvinToCel(temp2);
+        const temp3 = data.list[2].main.temp;
+        const cTemp3 = App.convertKelvinToCel(temp3);
         console.log(data);
         console.log('this is the date: ', laterTime);
         this.setState({
@@ -153,9 +159,9 @@ class App extends Component {
             weather: {
                 ...this.state.weather,
                 laterTime,
-                cTime1,
-                cTime2,
-                cTime3,
+                cTemp1,
+                cTemp2,
+                cTemp3,
                 // forecast : data.list.map(item => {
                 //     date : MediaStreamErrorEvent(item.dt * 1000),
                 //     temp: 
@@ -197,9 +203,9 @@ class App extends Component {
                 location,
                 cTempMax,
                 cTempMin,
-                cTime1,
-                cTime2,
-                cTime3,
+                cTemp1,
+                cTemp2,
+                cTemp3,
                 laterTime,
             }
         } = this.state;
@@ -214,9 +220,9 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     laterTime={laterTime}
-                    time1={cTime1}
-                    time2={cTime2}
-                    time3={cTime3}
+                    temp1={cTemp1}
+                    temp2={cTemp2}
+                    temp3={cTemp3}
                     onClick={this.getLocation}
                 />
             </div>
