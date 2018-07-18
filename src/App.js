@@ -22,12 +22,10 @@ class App extends Component {
         return Math.round(parseInt(deg, 10) - 273.15);
     }
     static dateFormatter(date) {
-        return moment(date).format('MMM-DD');
-        console.log(date);
+        return moment(date).format('MMMM');
     }
-    static timeFormatter(date) {
-        return moment(date).format('HH-mm');
-        console.log(date);
+    static timeFormatter(time) {
+        return moment(time).format('HH:mm');
     }
 
     // static getWeekDay(data) {
@@ -138,7 +136,7 @@ class App extends Component {
 
     mapForecastData(data) {
         const time = data.list[0].dt * 1000;
-        const laterTime = App.dateFormatter(time);
+        const laterTime = App.timeFormatter(time);
         const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
