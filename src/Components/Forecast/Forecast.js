@@ -11,21 +11,21 @@ const Forecast = (props) => {
                     
                     <p>{props.later}</p>
                     <div id="item1">
-                        {props.cTomorrowWeather}
+                        {props.time1}
                     </div>
                 </div>
                 <div>
                     
                     <p>{props.later}</p>
                     <div id="item1">
-                        {props.cTomorrowWeather}
+                        {props.time1}
                     </div>
                 </div>
                 <div>
                     
                     <p>{props.later}</p>
                     <div id="item1">
-                        {props.cTomorrowWeather}
+                        {props.time1}
                     </div>
                 </div>
             </div>

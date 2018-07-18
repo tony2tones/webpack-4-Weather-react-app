@@ -48,7 +48,9 @@ class App extends Component {
             showError: false,
             curTime: '',
             weather: {
-                time: '',
+                time1: '',
+                time2: '',
+                time3: '',
                 laterTime: '',
                 toDay: '',
                 cTemp: '',
@@ -60,8 +62,9 @@ class App extends Component {
                 fTempMax: '',
                 location: '',
                 icon: '',
-                fTomorrowWeather: '',
-                cTomorrowWeather: '',
+                fTime1: '',
+                fTime2: '',
+                fTime3:'',
                 forecast: [],
             },
         };
@@ -137,8 +140,12 @@ class App extends Component {
     mapForecastData(data) {
         const time = data.list[0].dt;
         const laterTime = App.timeFormatter(time);
-        const fTomorrowWeather = data.list[0].main.temp;
-        const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
+        const fTime1 = data.list[0].main.temp;
+        const cTime1 = App.convertKelvinToCel(fTime1);
+        const fTime2 = data.list[1].main.temp;
+        const cTime2 = App.convertKelvinToCel(fTime2);
+        const fTime3 = data.list[2].main.temp;
+        const cTime3 = App.convertKelvinToCel(fTime3);
         console.log(data);
         console.log('this is the date: ', laterTime);
         this.setState({
@@ -146,7 +153,9 @@ class App extends Component {
             weather: {
                 ...this.state.weather,
                 laterTime,
-                cTomorrowWeather,
+                cTime1,
+                cTime2,
+                cTime3,
                 // forecast : data.list.map(item => {
                 //     date : MediaStreamErrorEvent(item.dt * 1000),
                 //     temp: 
@@ -188,7 +197,9 @@ class App extends Component {
                 location,
                 cTempMax,
                 cTempMin,
-                cTomorrowWeather,
+                cTime1,
+                cTime2,
+                cTime3,
                 laterTime,
             }
         } = this.state;
@@ -203,7 +214,9 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     laterTime={laterTime}
-                    cTomorrowWeather={cTomorrowWeather}
+                    cTime1={cTime1}
+                    cTime2={cTime2}
+                    cTime3={cTime3}
                     onClick={this.getLocation}
                 />
             </div>
