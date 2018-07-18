@@ -12,9 +12,9 @@ const Weather = (props) => (
             </div>
             <div className="location">{props.location}</div>
             <div className="WeatherName">{props.weatherNiceName}</div>
-            <div className="centered">{props.cTemp}°</div>
+            <div className="centered">{props.cTemp}° </div>
             <Forecast 
-            // toDay={toDay}
+            later={props.laterTime}
             cTomorrowWeather={props.cTomorrowWeather}
             />
             <button onClick={props.getLocation}>REFRESH</button>

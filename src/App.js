@@ -21,8 +21,13 @@ class App extends Component {
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
     }
-    static dateFormatter(date){
-        console.log(moment(date).format('MM-DD HH:mm'));
+    static dateFormatter(date) {
+        return moment(date).format('MMM-DD');
+        console.log(date);
+    }
+    static timeFormatter(date) {
+        return moment(date).format('HH-mm');
+        console.log(date);
     }
 
     // static getWeekDay(data) {
@@ -46,6 +51,7 @@ class App extends Component {
             curTime: '',
             weather: {
                 time: '',
+                laterTime: '',
                 toDay: '',
                 cTemp: '',
                 fTemp: '',
@@ -132,16 +138,16 @@ class App extends Component {
 
     mapForecastData(data) {
         const time = data.list[0].dt * 1000;
-        toDay = App.dateFormatter(time);
+        const laterTime = App.dateFormatter(time);
         const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
-        console.log('this is the date: ', toDay);
+        console.log('this is the date: ', laterTime);
         this.setState({
             ...this.setState,
             weather: {
                 ...this.state.weather,
-                time,
+                laterTime,
                 cTomorrowWeather,
                 // forecast : data.list.map(item => {
                 //     date : MediaStreamErrorEvent(item.dt * 1000),
@@ -185,7 +191,7 @@ class App extends Component {
                 cTempMax,
                 cTempMin,
                 cTomorrowWeather,
-                // toDay,
+                laterTime,
             }
         } = this.state;
 
@@ -198,7 +204,7 @@ class App extends Component {
                     cTempMax={cTempMax}
                     cTempMin={cTempMin}
                     time={curTime}
-                    // toDay={toDay}
+                    laterTime={laterTime}
                     cTomorrowWeather={cTomorrowWeather}
                     onClick={this.getLocation}
                 />
