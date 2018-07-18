@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
+import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
 import Forecast from './Components/Forecast/Forecast';
@@ -19,6 +20,9 @@ class App extends Component {
     }
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
+    }
+    static dateFormatter(date){
+        console.log(moment(date).format('MM-DD HH:mm'));
     }
 
     // static getWeekDay(data) {
@@ -128,10 +132,11 @@ class App extends Component {
 
     mapForecastData(data) {
         const time = data.list[0].dt * 1000;
+        toDay = App.dateFormatter(time);
         const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
         console.log(data);
-        console.log('this is the date: ', time);
+        console.log('this is the date: ', toDay);
         this.setState({
             ...this.setState,
             weather: {

@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "moment": "^2.22.2",
+    "react-slick": "^0.23.1",
     "save": "^2.3.2",
     "superagent": "^3.8.3"
   }
