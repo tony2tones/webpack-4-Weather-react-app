@@ -214,9 +214,9 @@ class App extends Component {
                     cTempMin={cTempMin}
                     time={curTime}
                     laterTime={laterTime}
-                    cTime1={cTime1}
-                    cTime2={cTime2}
-                    cTime3={cTime3}
+                    time1={cTime1}
+                    time2={cTime2}
+                    time3={cTime3}
                     onClick={this.getLocation}
                 />
             </div>
