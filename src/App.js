@@ -25,7 +25,7 @@ class App extends Component {
         return moment(date).format('MMMM');
     }
     static timeFormatter(time) {
-        return moment(time).format('HH:mm');
+        return moment(time * 1000).format('HH:mm');
     }
 
     // static getWeekDay(data) {
@@ -135,7 +135,7 @@ class App extends Component {
     };
 
     mapForecastData(data) {
-        const time = data.list[0].dt * 1000;
+        const time = data.list[0].dt;
         const laterTime = App.timeFormatter(time);
         const fTomorrowWeather = data.list[0].main.temp;
         const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
