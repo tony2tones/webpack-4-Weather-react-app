@@ -2,7 +2,8 @@
     display: grid;
     position: relative;
     height: 100px;
-    background-image: url("../../assets/img/bgui.png");
+    background-color: rgba(6, 38, 51, 0.767);
+    /* background-image: url("../../assets/img/bgui.png"); */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100px;
     text-align: center;
@@ -10,4 +11,12 @@
 
   .time {
     font-family:'Titillium Web';
+    color: aliceblue;
+  }
+
+  .temp {
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: Tahoma, sans-serif;
   }
