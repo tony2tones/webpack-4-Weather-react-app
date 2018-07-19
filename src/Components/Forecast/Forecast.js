@@ -7,24 +7,24 @@ const Forecast = (props) => {
         <div>
             <p>Later today</p>
             <div className="grid">
-            <div>
-                    
+                <div>
+
                     <p>{props.time1}</p>
                     <div id="item1">
                         {props.temp1}
                     </div>
                 </div>
                 <div>
-                    
+
                     <p>{props.time2}</p>
-                    <div id="item1">
+                    <div id="item2">
                         {props.temp2}
                     </div>
                 </div>
                 <div>
-                    
+
                     <p>{props.time3}</p>
-                    <div id="item1">
+                    <div id="item3">
                         {props.temp3}
                     </div>
                 </div>

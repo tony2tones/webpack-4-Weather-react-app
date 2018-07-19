@@ -12,7 +12,7 @@ const Weather = (props) => (
             </div>
             <div className="location">{props.location}</div>
             <div className="WeatherName">{props.weatherNiceName}</div>
-            <div className="centered">{props.cTemp}°{props.time1}</div>
+            <div className="centered">{props.cTemp}°</div>
             <Forecast 
             time1={props.time1}
             time2={props.time2}

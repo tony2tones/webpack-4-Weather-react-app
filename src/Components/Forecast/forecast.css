@@ -1,5 +1,6 @@
 .grid {
     display: grid;
+    position: relative;
     height: 100px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 100px;
@@ -16,4 +17,8 @@
   
   .ant-carousel .slick-slide h3 {
     color: #fff;
+  }
+
+  .item1 {
+    grid-column-start: col-start 2;
   }

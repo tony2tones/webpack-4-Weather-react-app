@@ -156,13 +156,10 @@ class App extends Component {
         const cTemp2 = App.convertKelvinToCel(temp2);
         const temp3 = data.list[2].main.temp;
         const cTemp3 = App.convertKelvinToCel(temp3);
-        console.log(data);
-        console.log('this is the date: ', laterTime);
         this.setState({
             ...this.setState,
             weather: {
                 ...this.state.weather,
-                laterTime,
                 cTemp1,
                 cTemp2,
                 cTemp3,
