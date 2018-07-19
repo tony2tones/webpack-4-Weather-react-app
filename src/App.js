@@ -144,8 +144,12 @@ class App extends Component {
     };
 
     mapForecastData(data) {
-        const time = data.list[0].dt;
-        const laterTime = App.timeFormatter(time);
+        const time1 = data.list[0].dt;
+        const fTime1 = App.timeFormatter(time1);
+        const time2 = data.list[1].dt;
+        const fTime2 = App.timeFormatter(time2);
+        const time3 = data.list[2].dt;
+        const fTime3 = App.timeFormatter(time3);
         const temp1 = data.list[0].main.temp;
         const cTemp1 = App.convertKelvinToCel(temp1);
         const temp2 = data.list[1].main.temp;
@@ -162,6 +166,9 @@ class App extends Component {
                 cTemp1,
                 cTemp2,
                 cTemp3,
+                fTime1,
+                fTime2,
+                fTime3,
                 // forecast : data.list.map(item => {
                 //     date : MediaStreamErrorEvent(item.dt * 1000),
                 //     temp: 
@@ -206,7 +213,9 @@ class App extends Component {
                 cTemp1,
                 cTemp2,
                 cTemp3,
-                laterTime,
+                fTime1,
+                fTime2,
+                fTime3,
             }
         } = this.state;
 
@@ -219,7 +228,9 @@ class App extends Component {
                     cTempMax={cTempMax}
                     cTempMin={cTempMin}
                     time={curTime}
-                    laterTime={laterTime}
+                    time1={fTime1}
+                    time2={fTime2}
+                    time3={fTime3}
                     temp1={cTemp1}
                     temp2={cTemp2}
                     temp3={cTemp3}
