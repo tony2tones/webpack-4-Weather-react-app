@@ -9,23 +9,23 @@ const Forecast = (props) => {
             <div className="grid">
                 <div>
 
-                    <p>{props.time1}</p>
-                    <div id="item1">
-                        {props.temp1}
+                    <p>{props.temp1}</p>
+                    <div className="time">
+                        {props.time1}
                     </div>
                 </div>
                 <div>
 
-                    <p>{props.time2}</p>
-                    <div id="item2">
-                        {props.temp2}
+                    <p>{props.temp2}</p>
+                    <div className="time">
+                        {props.time2}
                     </div>
                 </div>
                 <div>
 
-                    <p>{props.time3}</p>
-                    <div id="item3">
-                        {props.temp3}
+                    <p id="item3">{props.temp3}</p>
+                    <div className="time">
+                        {props.time3}
                     </div>
                 </div>
             </div>
