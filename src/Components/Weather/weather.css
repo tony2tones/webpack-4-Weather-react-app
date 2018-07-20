@@ -46,9 +46,11 @@ body {
 
 button {
     position : inherit;
-     bottom : 0%;
+    bottom : 0%;
     width: 100%;
     border: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
     color: white;
     background-color: #000;
     padding: 8px;
