@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
 import Forecast from './Components/Forecast/Forecast';
+import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -166,10 +167,6 @@ class App extends Component {
                 fTime1,
                 fTime2,
                 fTime3,
-                // forecast : data.list.map(item => {
-                //     date : MediaStreamErrorEvent(item.dt * 1000),
-                //     temp: 
-                // })
             }
         });
     }
@@ -200,6 +197,7 @@ class App extends Component {
 
     render() {
         const {
+            showError,
             curTime,
             weather: {
                 cTemp,
@@ -218,6 +216,9 @@ class App extends Component {
 
         return (
             <div>
+                <div className="icon" />
+                {showError && <ErrorMessage />}
+                
                 <Weather
                     cTemp={cTemp}
                     location={location}
