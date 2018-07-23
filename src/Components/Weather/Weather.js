@@ -21,7 +21,7 @@ const Weather = (props) => (
             temp2={props.temp2}
             temp3={props.temp3}
             />
-            <button onClick={props.getLocation}>REFRESH</button>
+            <button onClick={() => {props.onClick(props.longitude,props.latitude)}}>REFRESH</button>
         </div>
     </div>
 );

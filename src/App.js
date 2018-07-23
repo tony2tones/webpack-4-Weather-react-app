@@ -77,6 +77,7 @@ class App extends Component {
                 forecast: [],
             },
         };
+        this.getLocation = this.getLocation.bind(this);
     }
 
     componentDidMount() {
@@ -201,6 +202,8 @@ class App extends Component {
             showError,
             isLoading,
             curTime,
+            longitude,
+            latitude,
             weather: {
                 cTemp,
                 weatherNiceName,
@@ -215,11 +218,12 @@ class App extends Component {
                 fTime3,
             }
         } = this.state;
+        console.log('render', this.getLocation);
         return (
             <div>
                 <div className="icon" />
-                {showError && <ErrorMessage />}
                 {isLoading && <div className="loader" />}
+                {showError && <ErrorMessage />}
                 {!showError &&
                 <Weather
                     cTemp={cTemp}
@@ -234,6 +238,8 @@ class App extends Component {
                     temp1={cTemp1}
                     temp2={cTemp2}
                     temp3={cTemp3}
+                    longitude={longitude}
+                    latitude={latitude}
                     onClick={this.getLocation}
                 /> }
             </div>
