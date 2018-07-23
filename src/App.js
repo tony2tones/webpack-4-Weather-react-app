@@ -199,6 +199,7 @@ class App extends Component {
     render() {
         const {
             showError,
+            isLoading,
             curTime,
             weather: {
                 cTemp,
@@ -218,6 +219,7 @@ class App extends Component {
             <div>
                 <div className="icon" />
                 {showError && <ErrorMessage />}
+                {isLoading && <div className="loader" />}
                 {!showError &&
                 <Weather
                     cTemp={cTemp}
