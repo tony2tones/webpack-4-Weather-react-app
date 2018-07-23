@@ -4,15 +4,12 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
-import Forecast from './Components/Forecast/Forecast';
 import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 const apiForeCast = 'http://api.openweathermap.org/data/2.5/forecast';
-
-// let loader = 
 
 class App extends Component {
     static apiForeCast(latitude, longitude) {
@@ -208,8 +205,6 @@ class App extends Component {
                 cTemp,
                 weatherNiceName,
                 location,
-                cTempMax,
-                cTempMin,
                 cTemp1,
                 cTemp2,
                 cTemp3,
@@ -218,7 +213,6 @@ class App extends Component {
                 fTime3,
             }
         } = this.state;
-        console.log('render', this.getLocation);
         return (
             <div>
                 <div className="icon" />
@@ -229,8 +223,6 @@ class App extends Component {
                     cTemp={cTemp}
                     location={location}
                     weatherNiceName={weatherNiceName}
-                    cTempMax={cTempMax}
-                    cTempMin={cTempMin}
                     time={curTime}
                     time1={fTime1}
                     time2={fTime2}
