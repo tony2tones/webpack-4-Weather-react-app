@@ -12,6 +12,8 @@ const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 const apiForeCast = 'http://api.openweathermap.org/data/2.5/forecast';
 
+// let loader = 
+
 class App extends Component {
     static apiForeCast(latitude, longitude) {
         return `${apiForeCast}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
@@ -129,7 +131,7 @@ class App extends Component {
                 this.mapData(res.body);
             })
             .catch(() => {
-                // err.message, err.response
+                this.setState({ broken: true });
             });
     };
     getLocation1({ latitude, longitude }) {
@@ -140,7 +142,7 @@ class App extends Component {
                 this.mapForecastData(res.body);
             })
             .catch(() => {
-                // err.message, err.response
+                this.setState({ broken: true });
             });
     };
 
@@ -179,7 +181,6 @@ class App extends Component {
         const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
-
         this.setState({
             ...this.setState,
             weather: {
@@ -213,12 +214,11 @@ class App extends Component {
                 fTime3,
             }
         } = this.state;
-
         return (
             <div>
                 <div className="icon" />
                 {showError && <ErrorMessage />}
-                
+                {!showError &&
                 <Weather
                     cTemp={cTemp}
                     location={location}
@@ -233,7 +233,7 @@ class App extends Component {
                     temp2={cTemp2}
                     temp3={cTemp3}
                     onClick={this.getLocation}
-                />
+                /> }
             </div>
         )
     };

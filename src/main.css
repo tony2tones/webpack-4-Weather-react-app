@@ -1,0 +1,9 @@
+/* $primary-color: $my-brand-color; */
+@import 'loaders.css/src/animations/square-spin.scss'
+
+/* .loader-hidden {
+  display: none;
+} */
+.icon {
+  display: block;
+}
