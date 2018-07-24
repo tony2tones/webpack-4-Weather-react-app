@@ -219,10 +219,10 @@ class App extends Component {
         return (
             <div>
                 <div className="icon" />
-                {isLoading && <div className="loader" />}
                 {showError && <ErrorMessage />}
                 {showWeather &&
                 <Weather
+                    isLoading={isLoading}
                     cTemp={cTemp}
                     location={location}
                     weatherNiceName={weatherNiceName}
@@ -236,7 +236,7 @@ class App extends Component {
                     longitude={longitude}
                     latitude={latitude}
                     onClick={this.getLocation}
-                /> }
+                />}
             </div>
         )
     };

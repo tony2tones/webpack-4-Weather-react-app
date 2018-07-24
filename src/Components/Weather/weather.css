@@ -59,3 +59,24 @@ button {
 button:hover, button:hover {
     opacity: 0.7;
 }
+
+.loader:empty {
+    position: absolute;
+    top: calc(50% - 4em);
+    left: calc(50% - 4em);
+    width: 6em;
+    height: 6em;
+    border: 0.25em solid rgba(0, 0, 0, 0.2);
+    border-left: 0.25em solid #000000;
+    border-radius: 60%;
+    animation: load8 2.1s infinite linear;
+  }
+  
+  @keyframes load8 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
