@@ -1,7 +1,28 @@
 .grid {
     display: grid;
+    position: relative;
     height: 100px;
-    grid-template-columns: repeat(6, 1fr);
+    border-right: 1px solid rgb(252, 252, 252);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100px;
+  }
+
+  .time {
+    font-family:'Titillium Web';
+    color: rgb(146, 152, 156);
     text-align: center;
+    align-self: end;
+  }
+
+  .temp {
+    color: rgb(146, 152, 156);
+    font-size: 20px;
+    font-weight: 900;
+    font-family: Tahoma, sans-serif;
+  }
+
+  .label{
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+    color:rgb(141, 140, 140);
   }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
+import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
-import Forecast from './Components/Forecast/Forecast';
+import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -19,6 +20,12 @@ class App extends Component {
     }
     static convertKelvinToCel(deg) {
         return Math.round(parseInt(deg, 10) - 273.15);
+    }
+    static dateFormatter(date) {
+        return moment(date).format('MMMM');
+    }
+    static timeFormatter(time) {
+        return moment(time * 1000).format('HH:mm');
     }
 
     // static getWeekDay(data) {
@@ -41,22 +48,28 @@ class App extends Component {
             showError: false,
             curTime: '',
             weather: {
-                time: '',
+                temp1: '',
+                temp2: '',
+                temp3: '',
+                cTemp1: '',
+                cTemp2: '',
+                cTemp3: '',
+                time1: '',
+                time2: '',
+                time3: '',
+                laterTime: '',
                 toDay: '',
                 cTemp: '',
                 fTemp: '',
                 weatherNiceName: '',
-                cTempMin: '',
-                cTempMax: '',
-                fTempMin: '',
-                fTempMax: '',
                 location: '',
                 icon: '',
-                fTomorrowWeather: '',
-                cTomorrowWeather: '',
-                forecast: [],
+                fTime1: '',
+                fTime2: '',
+                fTime3:'',
             },
         };
+        this.getLocation = this.getLocation.bind(this);
     }
 
     componentDidMount() {
@@ -75,11 +88,11 @@ class App extends Component {
 
         // If user declines location permission
         const geoFail = () => {
-            this.setState({ showError: true })
+            this.setState({ showError: true, isLoading: false })
         }
 
         const brokenError = () => {
-            this.setState({ showError: true });
+            this.setState({ showError: true, isLoading: false  });
         }
 
         // What to do if location is found
@@ -111,7 +124,7 @@ class App extends Component {
                 this.mapData(res.body);
             })
             .catch(() => {
-                // err.message, err.response
+                this.setState({ broken: true });
             });
     };
     getLocation1({ latitude, longitude }) {
@@ -122,81 +135,95 @@ class App extends Component {
                 this.mapForecastData(res.body);
             })
             .catch(() => {
-                // err.message, err.response
+                this.setState({ broken: true });
             });
     };
 
     mapForecastData(data) {
-        const time = data.list[0].dt * 1000;
-        const fTomorrowWeather = data.list[0].main.temp;
-        const cTomorrowWeather = App.convertKelvinToCel(fTomorrowWeather);
-        console.log(data);
-        console.log('this is the date: ', time);
+        const time1 = data.list[0].dt;
+        const fTime1 = App.timeFormatter(time1);
+        const time2 = data.list[1].dt;
+        const fTime2 = App.timeFormatter(time2);
+        const time3 = data.list[2].dt;
+        const fTime3 = App.timeFormatter(time3);
+        const temp1 = data.list[0].main.temp;
+        const cTemp1 = App.convertKelvinToCel(temp1);
+        const temp2 = data.list[1].main.temp;
+        const cTemp2 = App.convertKelvinToCel(temp2);
+        const temp3 = data.list[2].main.temp;
+        const cTemp3 = App.convertKelvinToCel(temp3);
         this.setState({
             ...this.setState,
             weather: {
                 ...this.state.weather,
-                time,
-                cTomorrowWeather,
-                // forecast : data.list.map(item => {
-                //     date : MediaStreamErrorEvent(item.dt * 1000),
-                //     temp: 
-                // })
+                cTemp1,
+                cTemp2,
+                cTemp3,
+                fTime1,
+                fTime2,
+                fTime3,
             }
         });
     }
     mapData(data) {
         const fTemp = data.main.temp;
-        const fTempMax = data.main.temp_max;
-        const fTempMin = data.main.temp_min;
         const cTemp = App.convertKelvinToCel(fTemp);
-        const cTempMax = App.convertKelvinToCel(fTempMax);
-        const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
-
         this.setState({
             ...this.setState,
             weather: {
                 fTemp,
-                fTempMax,
-                fTempMin,
                 cTemp,
-                cTempMax,
-                cTempMin,
                 weatherNiceName,
                 location,
             }
         });
+        this.setState({ isLoading: false, showWeather: true });
     }
 
     render() {
         const {
+            showError,
+            showWeather,
+            isLoading,
             curTime,
+            longitude,
+            latitude,
             weather: {
                 cTemp,
                 weatherNiceName,
                 location,
-                cTempMax,
-                cTempMin,
-                cTomorrowWeather,
-                // toDay,
+                cTemp1,
+                cTemp2,
+                cTemp3,
+                fTime1,
+                fTime2,
+                fTime3,
             }
         } = this.state;
-
+        
         return (
             <div>
+                <div className="icon" />
+                {isLoading && <div className="loader" />}
+                {showError && <ErrorMessage />}
+                {showWeather &&
                 <Weather
                     cTemp={cTemp}
                     location={location}
                     weatherNiceName={weatherNiceName}
-                    cTempMax={cTempMax}
-                    cTempMin={cTempMin}
                     time={curTime}
-                    // toDay={toDay}
-                    cTomorrowWeather={cTomorrowWeather}
+                    time1={fTime1}
+                    time2={fTime2}
+                    time3={fTime3}
+                    temp1={cTemp1}
+                    temp2={cTemp2}
+                    temp3={cTemp3}
+                    longitude={longitude}
+                    latitude={latitude}
                     onClick={this.getLocation}
-                />
+                />}
             </div>
         )
     };
