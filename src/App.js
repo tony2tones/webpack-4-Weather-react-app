@@ -210,7 +210,6 @@ class App extends Component {
                 {showError && <ErrorMessage />}
                 {showWeather &&
                 <Weather
-                    isLoading={isLoading}
                     cTemp={cTemp}
                     location={location}
                     weatherNiceName={weatherNiceName}
