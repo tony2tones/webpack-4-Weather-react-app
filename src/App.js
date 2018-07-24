@@ -67,7 +67,6 @@ class App extends Component {
                 fTime1: '',
                 fTime2: '',
                 fTime3:'',
-                forecast: [],
             },
         };
         this.getLocation = this.getLocation.bind(this);
@@ -207,6 +206,7 @@ class App extends Component {
         return (
             <div>
                 <div className="icon" />
+                {isLoading && <div className="loader" />}
                 {showError && <ErrorMessage />}
                 {showWeather &&
                 <Weather
