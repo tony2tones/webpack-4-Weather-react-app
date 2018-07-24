@@ -1,11 +1,12 @@
 import React from 'react';
 
 import Forecast from '../Forecast/Forecast';
+import Loaders from '../Loaders/Loaders';
 import "./Weather.css";
 
 const Weather = (props) => (
     <div className="wrapper">
-        {props.isLoading ? <div className="loader">Its definitely loading </div> :
+        {props.isLoading ? <Loaders /> :
             <div className="card">
                 <div>{props.time}</div>
                 <div>

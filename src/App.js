@@ -62,10 +62,6 @@ class App extends Component {
                 cTemp: '',
                 fTemp: '',
                 weatherNiceName: '',
-                cTempMin: '',
-                cTempMax: '',
-                fTempMin: '',
-                fTempMax: '',
                 location: '',
                 icon: '',
                 fTime1: '',
@@ -172,22 +168,14 @@ class App extends Component {
     }
     mapData(data) {
         const fTemp = data.main.temp;
-        const fTempMax = data.main.temp_max;
-        const fTempMin = data.main.temp_min;
         const cTemp = App.convertKelvinToCel(fTemp);
-        const cTempMax = App.convertKelvinToCel(fTempMax);
-        const cTempMin = App.convertKelvinToCel(fTempMin);
         const weatherNiceName = data.weather[0].description.toUpperCase();
         const location = data.name.toUpperCase();
         this.setState({
             ...this.setState,
             weather: {
                 fTemp,
-                fTempMax,
-                fTempMin,
                 cTemp,
-                cTempMax,
-                cTempMin,
                 weatherNiceName,
                 location,
             }
