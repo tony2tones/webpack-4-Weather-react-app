@@ -22,7 +22,7 @@ const Weather = (props) => (
             temp3={props.temp3}
             />
             <button onClick={() => {props.onClick(props.longitude,props.latitude)}}>REFRESH</button>
-            {console.log('caamaan this is it',props.longitude,props.latitude )}
+            {/* {console.log('caamaan this is it',props.longitude,props.latitude )} */}
         </div>
     </div>
 );

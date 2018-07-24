@@ -93,11 +93,11 @@ class App extends Component {
 
         // If user declines location permission
         const geoFail = () => {
-            this.setState({ showError: true })
+            this.setState({ showError: true, isLoading: false })
         }
 
         const brokenError = () => {
-            this.setState({ showError: true });
+            this.setState({ showError: true, isLoading: false  });
         }
 
         // What to do if location is found
@@ -192,11 +192,13 @@ class App extends Component {
                 location,
             }
         });
+        this.setState({ isLoading: false, showWeather: true });
     }
 
     render() {
         const {
             showError,
+            showWeather,
             isLoading,
             curTime,
             longitude,
@@ -213,12 +215,13 @@ class App extends Component {
                 fTime3,
             }
         } = this.state;
+        
         return (
             <div>
                 <div className="icon" />
                 {isLoading && <div className="loader" />}
                 {showError && <ErrorMessage />}
-                {!showError &&
+                {showWeather &&
                 <Weather
                     cTemp={cTemp}
                     location={location}
