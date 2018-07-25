@@ -62,7 +62,7 @@ class App extends Component {
                 fTime3:'',
             },
         };
-        this.getLocation = this.getLocation.bind(this);
+        this.getLocationNow = this.getLocationNow.bind(this);
     }
 
     componentDidMount() {
@@ -75,8 +75,8 @@ class App extends Component {
         // This is if user accept location permission
         const geoSuccess = ({ coords }) => {
             this.setState({ showError: false });
-            this.getLocation(coords);
-            this.getLocation1(coords);
+            this.getLocationNow(coords);
+            this.getLocationLater(coords);
         }
 
         // If user declines location permission
@@ -109,7 +109,7 @@ class App extends Component {
         );
     };
 
-    getLocation({ latitude, longitude }) {
+    getLocationNow({ latitude, longitude }) {
         request
             .get(App.apiUrl(latitude, longitude))
             .set('accept', 'json')
@@ -120,7 +120,7 @@ class App extends Component {
                 this.setState({ broken: true });
             });
     };
-    getLocation1({ latitude, longitude }) {
+    getLocationLater({ latitude, longitude }) {
         request
             .get(App.apiForeCast(latitude, longitude))
             .set('accept', 'json')
@@ -200,7 +200,7 @@ class App extends Component {
             <div>
                 <div className="icon" />
                 {isLoadingNow && <div className="loader" />}
-                {broken && <BrokenAPIMessage />}
+                {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 {showWeather &&
                 <Weather
@@ -216,7 +216,7 @@ class App extends Component {
                     temp3={cTemp3}
                     longitude={longitude}
                     latitude={latitude}
-                    onClick={this.getLocation}
+                    onClick={this.getLocationNow}
                 />}
                 
             </div>
