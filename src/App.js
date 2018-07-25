@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
 import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
+import BrokenAPIMessage from './Components/BrokenAPIMessage/BrokenAPIMessage';
 
 // Constant variables
 const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
@@ -27,15 +28,6 @@ class App extends Component {
     static timeFormatter(time) {
         return moment(time * 1000).format('HH:mm');
     }
-
-    // static getWeekDay(data) {
-    //     this.setState({
-    //         weekday:data.list.slice(0,7).map(function(day) {
-    //         weekday = new Date(day.time * 1e3).getDay();
-    //         }
-    //     })
-    // });    
-
     constructor() {
         super();
         this.state = {
@@ -207,6 +199,7 @@ class App extends Component {
             <div>
                 <div className="icon" />
                 {isLoading && <div className="loader" />}
+                {broken && <BrokenAPIMessage />}
                 {showError && <ErrorMessage />}
                 {showWeather &&
                 <Weather
@@ -224,6 +217,7 @@ class App extends Component {
                     latitude={latitude}
                     onClick={this.getLocation}
                 />}
+                
             </div>
         )
     };
