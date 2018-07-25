@@ -4,7 +4,7 @@ import './forecast.css';
 
 const Forecast = (props) => {
     return (
-        <div>
+        <div className="card">
             <div className="label">Later today</div>
             <div className="grid">
                 <div>
@@ -16,14 +16,14 @@ const Forecast = (props) => {
                 </div>
                 <div>
 
-                    <p  className="temp">{props.temp2}°</p>
+                    <p className="temp">{props.temp2}°</p>
                     <div className="time">
                         {props.time2}
                     </div>
                 </div>
                 <div>
 
-                    <p  className="temp">{props.temp3}°</p>
+                    <p className="temp">{props.temp3}°</p>
                     <div className="time">
                         {props.time3}
                     </div>

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 
 import Weather from './Components/Weather/Weather';
+import Forecast from '../src/Components/Forecast/Forecast';
 import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
 import BrokenAPIMessage from './Components/BrokenAPIMessage/BrokenAPIMessage';
 
@@ -32,6 +33,7 @@ class App extends Component {
         super();
         this.state = {
             showWeather: false,
+            showLaterWeather: false,
             broken: false,
             isLoadingNow: true,
             isLoadingLater:false,
@@ -157,6 +159,7 @@ class App extends Component {
                 fTime3,
             }
         });
+        this.setState({showLaterWeather: true});
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -179,6 +182,7 @@ class App extends Component {
         const {
             showError,
             showWeather,
+            showLaterWeather,
             isLoadingNow,
             curTime,
             longitude,
@@ -208,16 +212,19 @@ class App extends Component {
                     location={location}
                     weatherNiceName={weatherNiceName}
                     time={curTime}
-                    time1={fTime1}
-                    time2={fTime2}
-                    time3={fTime3}
-                    temp1={cTemp1}
-                    temp2={cTemp2}
-                    temp3={cTemp3}
                     longitude={longitude}
                     latitude={latitude}
                     onClick={this.getLocationNow}
                 />}
+                {showLaterWeather && 
+                <Forecast
+                time1={fTime1}
+                time2={fTime2}
+                time3={fTime3}
+                temp1={cTemp1}
+                temp2={cTemp2}
+                temp3={cTemp3}
+            />}
                 
             </div>
         )
