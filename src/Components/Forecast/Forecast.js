@@ -4,7 +4,7 @@ import './forecast.css';
 
 const Forecast = (props) => {
     return (
-        <div className="card">
+        <div className="card-later">
             <div className="label">Later today</div>
             <div className="grid">
                 <div>
@@ -29,6 +29,7 @@ const Forecast = (props) => {
                     </div>
                 </div>
             </div>
+            <button onClick={() => { props.onClick(props.longitude, props.latitude) }}>REFRESH</button>
         </div>
     )
 }

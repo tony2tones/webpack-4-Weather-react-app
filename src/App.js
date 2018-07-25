@@ -214,7 +214,7 @@ class App extends Component {
                     time={curTime}
                     longitude={longitude}
                     latitude={latitude}
-                    onClick={this.getLocationNow}
+                    
                 />}
                 {showLaterWeather && 
                 <Forecast
@@ -224,6 +224,7 @@ class App extends Component {
                 temp1={cTemp1}
                 temp2={cTemp2}
                 temp3={cTemp3}
+                onClick={this.getLocationNow}
             />}
                 
             </div>

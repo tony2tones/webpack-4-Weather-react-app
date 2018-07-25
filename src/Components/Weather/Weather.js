@@ -12,8 +12,6 @@ const Weather = (props) => (
                 <div className="location">{props.location}</div>
                 <div className="WeatherName">{props.weatherNiceName}</div>
                 <div className="centered">{props.cTemp}°</div>
-                
-                <button onClick={() => { props.onClick(props.longitude, props.latitude) }}>REFRESH</button>
                 {/* {console.log('caamaan this is it',props.longitude,props.latitude )} */}
             </div>
         </div>
