@@ -36,7 +36,7 @@ class App extends Component {
             showLaterWeather: false,
             broken: false,
             isLoadingNow: true,
-            isLoadingLater:false,
+            isLoadingLater: false,
             latitude: null,
             longitude: null,
             error: null,
@@ -61,7 +61,7 @@ class App extends Component {
                 icon: '',
                 fTime1: '',
                 fTime2: '',
-                fTime3:'',
+                fTime3: '',
             },
         };
         this.getLocationNow = this.getLocationNow.bind(this);
@@ -87,7 +87,7 @@ class App extends Component {
         }
 
         const brokenError = () => {
-            this.setState({ showError: true, isLoadingNow: false  });
+            this.setState({ showError: true, isLoadingNow: false });
         }
 
         // What to do if location is found
@@ -159,7 +159,7 @@ class App extends Component {
                 fTime3,
             }
         });
-        this.setState({showLaterWeather: true});
+        this.setState({ showLaterWeather: true });
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -199,34 +199,36 @@ class App extends Component {
                 fTime3,
             }
         } = this.state;
-        
+
         return (
-            <div>
+            <div className="wrapper">
                 <div className="icon" />
                 {isLoadingNow && <div className="loader" />}
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
-                {showWeather &&
-                <Weather
-                    cTemp={cTemp}
-                    location={location}
-                    weatherNiceName={weatherNiceName}
-                    time={curTime}
-                    longitude={longitude}
-                    latitude={latitude}
-                    
-                />}
-                {showLaterWeather && 
-                <Forecast
-                time1={fTime1}
-                time2={fTime2}
-                time3={fTime3}
-                temp1={cTemp1}
-                temp2={cTemp2}
-                temp3={cTemp3}
-                onClick={this.getLocationNow}
-            />}
-                
+               
+                    {showWeather &&
+                        <Weather
+                            cTemp={cTemp}
+                            location={location}
+                            weatherNiceName={weatherNiceName}
+                            time={curTime}
+                            longitude={longitude}
+                            latitude={latitude}
+
+                        />}
+                    {showLaterWeather &&
+                        <Forecast
+                            time1={fTime1}
+                            time2={fTime2}
+                            time3={fTime3}
+                            temp1={cTemp1}
+                            temp2={cTemp2}
+                            temp3={cTemp3}
+                            onClick={this.getLocationNow}
+                        />}
+               
+
             </div>
         )
     };
