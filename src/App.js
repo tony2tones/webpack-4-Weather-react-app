@@ -46,12 +46,12 @@ class App extends Component {
                 temp1: '',
                 temp2: '',
                 temp3: '',
-                cTemp1: '',
-                cTemp2: '',
-                cTemp3: '',
-                time1: '',
-                time2: '',
-                time3: '',
+                cTemp1: '--',
+                cTemp2: '--',
+                cTemp3: '--',
+                time1: '--',
+                time2: '--',
+                time3: '--',
                 laterTime: '',
                 toDay: '',
                 cTemp: '',
@@ -59,9 +59,9 @@ class App extends Component {
                 weatherNiceName: '',
                 location: '',
                 icon: '',
-                fTime1: '',
-                fTime2: '',
-                fTime3: '',
+                fTime1: '--',
+                fTime2: '--',
+                fTime3: '--',
             },
         };
         this.getLocationNow = this.getLocationNow.bind(this);
@@ -159,7 +159,7 @@ class App extends Component {
                 fTime3,
             }
         });
-        this.setState({ showLaterWeather: true });
+        this.setState({ isLoadingLater: false ,showLaterWeather: true });
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -184,6 +184,7 @@ class App extends Component {
             showWeather,
             showLaterWeather,
             isLoadingNow,
+            isLoadingLater,
             curTime,
             longitude,
             latitude,
@@ -202,11 +203,11 @@ class App extends Component {
 
         return (
             <div className="wrapper">
-                <div className="icon" />
-                {isLoadingNow && <div className="loader" />}
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 <div className="card">
+                    
+                    {isLoadingNow && <div className="loader" />}
                     {showWeather &&
                         <Weather
                             cTemp={cTemp}
@@ -215,9 +216,9 @@ class App extends Component {
                             time={curTime}
                             longitude={longitude}
                             latitude={latitude}
-
                         />}
                     <div className="card-later">
+                        {isLoadingLater && <div className="loader" />}
                         {showLaterWeather &&
                             <Forecast
                                 time1={fTime1}
@@ -226,7 +227,6 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                               
                             />}
                     </div>
                 </div>

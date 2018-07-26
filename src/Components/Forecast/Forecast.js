@@ -8,7 +8,6 @@ const Forecast = (props) => {
             <div className="label">Later today</div>
             <div className="grid">
                 <div>
-
                     <p className="temp">{props.temp1}°</p>
                     <div className="time">
                         {props.time1}
