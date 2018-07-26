@@ -16,19 +16,20 @@ const Forecast = (props) => {
                 </div>
                 <div>
 
-                    <p  className="temp">{props.temp2}°</p>
+                    <p className="temp">{props.temp2}°</p>
                     <div className="time">
                         {props.time2}
                     </div>
                 </div>
                 <div>
 
-                    <p  className="temp">{props.temp3}°</p>
+                    <p className="temp">{props.temp3}°</p>
                     <div className="time">
                         {props.time3}
                     </div>
                 </div>
             </div>
+            <button onClick={() => { props.onClick(props.longitude, props.latitude) }}>REFRESH</button>
         </div>
     )
 }
