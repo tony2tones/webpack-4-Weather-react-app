@@ -206,7 +206,7 @@ class App extends Component {
                 {isLoadingNow && <div className="loader" />}
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
-               
+                <div className="card">
                     {showWeather &&
                         <Weather
                             cTemp={cTemp}
@@ -217,17 +217,19 @@ class App extends Component {
                             latitude={latitude}
 
                         />}
-                    {showLaterWeather &&
-                        <Forecast
-                            time1={fTime1}
-                            time2={fTime2}
-                            time3={fTime3}
-                            temp1={cTemp1}
-                            temp2={cTemp2}
-                            temp3={cTemp3}
-                            onClick={this.getLocationNow}
-                        />}
-               
+                    {/* <div className="card-later">
+                        {showLaterWeather &&
+                            <Forecast
+                                time1={fTime1}
+                                time2={fTime2}
+                                time3={fTime3}
+                                temp1={cTemp1}
+                                temp2={cTemp2}
+                                temp3={cTemp3}
+                                onClick={this.getLocationNow}
+                            />}
+                    </div> */}
+                </div>
 
             </div>
         )
