@@ -26,6 +26,12 @@
     font-weight: bold;
     color:rgb(141, 140, 140);
   }
+
+  button:hover, button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
   button {
     position : inherit;
     bottom : 0%;
@@ -40,7 +46,6 @@
 
   .card-later {
     width: 370px;
-    
     margin: auto;
     text-align: center;
     background-color:#F8F8FF;
