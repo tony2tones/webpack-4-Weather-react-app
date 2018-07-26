@@ -217,7 +217,7 @@ class App extends Component {
                             latitude={latitude}
 
                         />}
-                    {/* <div className="card-later">
+                    <div className="card-later">
                         {showLaterWeather &&
                             <Forecast
                                 time1={fTime1}
@@ -226,9 +226,9 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                                onClick={this.getLocationNow}
+                               
                             />}
-                    </div> */}
+                    </div>
                 </div>
 
             </div>
