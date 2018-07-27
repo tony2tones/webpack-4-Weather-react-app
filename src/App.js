@@ -159,7 +159,7 @@ class App extends Component {
                 fTime3,
             }
         });
-        this.setState({ isLoadingLater: false ,showLaterWeather: true });
+        this.setState({ isLoadingLater: false, showLaterWeather: true });
     }
     mapData(data) {
         const fTemp = data.main.temp;
@@ -206,7 +206,7 @@ class App extends Component {
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 <div className="card">
-                    
+
                     {isLoadingNow && <div className="loader" />}
                     {showWeather &&
                         <Weather
