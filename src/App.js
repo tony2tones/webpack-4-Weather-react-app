@@ -227,6 +227,7 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
+                                onClick={this.getLocationNow}
                             />}
                     </div>
                 </div>
