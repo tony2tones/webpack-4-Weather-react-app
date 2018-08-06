@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
+    "jest": "jest --config=./jest.config.json --coverage",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
@@ -46,5 +47,14 @@
     "save": "^2.3.2",
     "slick-carousel": "^1.8.1",
     "superagent": "^3.8.3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|jpg|png)$": "<rootDir>/empty-module.js"
+    },
+    "setupFiles": [
+      "<rootDir>/.jest/shim.js",
+      "<rootDir>/.jest/test-setup.js"
+    ]
   }
 }
