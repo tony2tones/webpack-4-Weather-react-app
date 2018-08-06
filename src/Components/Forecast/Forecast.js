@@ -14,14 +14,12 @@ const Forecast = (props) => {
                     </div>
                 </div>
                 <div>
-
                     <p className="temp">{props.temp2}°</p>
                     <div className="time">
                         {props.time2}
                     </div>
                 </div>
                 <div>
-
                     <p className="temp">{props.temp3}°</p>
                     <div className="time">
                         {props.time3}
