@@ -23,7 +23,7 @@ async getForecastData() {
 			}))
 		});
 	}
-
+------------------------------------------------------------------
 	- Install `jest` as a `devDependency`.
 
 - Install `enzyme` and `enzyme-adapter-react-16` as `devDependecy`(ies).
@@ -50,4 +50,4 @@ References:
 
 Jest: https://jestjs.io/
 
-Enzyme: http://airbnb.io/enzyme/ (edited)
+Enzyme: http://airbnb.io/enzyme/ 
