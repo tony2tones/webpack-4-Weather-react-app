@@ -1,5 +1,7 @@
 {
     "jest": {
+        "verbose": true,
+        "testURL": "http://localhost/",
         "moduleNameMapper": {
             "\\.(css|jpg|png)$": "<rootDir>/empty-module.js"
         },
