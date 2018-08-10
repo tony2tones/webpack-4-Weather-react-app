@@ -12,33 +12,48 @@ const TIME3 = 'TIME3';
 
 test('should render an `location to exist`', () => {
     const wrapper = shallow(<Forecast
-        location={LOCATION}
-        cTemp={C_TEMP}
-        WEATHERNAME={WEATHERNAME}
+        temp1={TEMP1}
+        time1={TIME1}
+        temp2={TEMP2}
+        time2={TIME2}
+        temp3={TEMP3}
+        time3={TIME3}
     />);
     const expected = true;
-    const actual = wrapper.find('.location').exists();
+    const actual = wrapper.find('.grid').exists();
     expect(actual).toBe(expected);
 });
 
 test('Passes the props through correctly', () => {
     const wrapper = shallow(<Forecast
-        location={LOCATION}
-        cTemp={C_TEMP}
-        WEATHERNAME={WEATHERNAME}
+        temp1={TEMP1}
+        time1={TIME1}
+        temp2={TEMP2}
+        time2={TIME2}
+        temp3={TEMP3}
+        time3={TIME3}
     />);
-    const expectedLocation = LOCATION;
-    const expectedCTemp = `${C_TEMP}°`;
-    const expectedWeatherName = WEATHERNAME;
 
-    const actualLocation = wrapper.find('[data-qa="weather__location"]').text();
-    const actualCTemp = wrapper.find('[data-qa="centered__temp"]').text();
-    const actualWeatherName = wrapper.find('[data-qa="weather__name"]').text();
+    const expectedTemp1 = `${TEMP1}°`;
+    const expectedTime1 = TIME1;
+    const expectedTemp2 = `${TEMP2}°`;
+    const expectedTime2 = TIME2;
+    const expectedTemp3 = `${TEMP3}°`;
+    const expectedTime3 = TIME3;
 
-    expect(actualLocation).toBe(expectedLocation);
-    expect(actualCTemp).toBe(expectedCTemp);
-    console.log(WEATHERNAME, ' ', LOCATION, ' ',C_TEMP);
-    expect(actualWeatherName).toBe(expectedWeatherName);
+    const actualTemp1 = wrapper.find('[data-qa="temp_one"]').text();
+    const actualTime1 = wrapper.find('[data-qa="time_one"]').text();
+    const actualTemp2 = wrapper.find('[data-qa="temp_two"]').text();
+    const actualTime2 = wrapper.find('[data-qa="time_two"]').text();
+    const actualTemp3 = wrapper.find('[data-qa="temp_three"]').text();
+    const actualTime3 = wrapper.find('[data-qa="time_three"]').text();
+
+    expect(actualTemp1).toBe(expectedTemp1);
+    expect(actualTime1).toBe(expectedTime1);
+    expect(actualTemp2).toBe(expectedTemp2);
+    expect(actualTime2).toBe(expectedTime2);
+    expect(actualTemp3).toBe(expectedTemp3);
+    expect(actualTime3).toBe(expectedTime3);
 
 });
 
