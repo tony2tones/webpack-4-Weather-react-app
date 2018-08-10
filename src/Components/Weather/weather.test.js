@@ -22,7 +22,7 @@ test('Passes the props through correctly', () => {
     const wrapper = shallow(<Weather
         location={LOCATION}
         cTemp={C_TEMP}
-        WEATHERNAME={WEATHERNAME}
+        weatherNiceName={WEATHERNAME}
     />);
     const expectedLocation = LOCATION;
     const expectedCTemp = `${C_TEMP}°`;
