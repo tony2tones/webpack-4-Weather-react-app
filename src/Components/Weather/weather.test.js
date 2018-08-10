@@ -34,23 +34,6 @@ test('Passes the props through correctly', () => {
 
     expect(actualLocation).toBe(expectedLocation);
     expect(actualCTemp).toBe(expectedCTemp);
-    console.log(WEATHERNAME, ' ', LOCATION, ' ',C_TEMP);
     expect(actualWeatherName).toBe(expectedWeatherName);
 
 });
-
-// test('should check for classname iconHeader', () => {
-//   const wrapper = shallow(<Weather
-//     location={LOCATION}
-//     cTemp={C_TEMP}
-//     cTempMax={WEATHERNICENAME}
-//     cTempMin={C_TEMP_MIN}
-//     weatherNiceName={WEATHER_NAME}
-//     icon={ICON}
-//   />);
-
-//   const expected = true;
-//   const actual = wrapper.find('.iconHeader').exists();
-
-//   expect(actual).toBe(expected);
-// });

@@ -10,7 +10,7 @@ const TIME2 = 'TIME2';
 const TEMP3 = 'TEMP3';
 const TIME3 = 'TIME3';
 
-test('should render an `location to exist`', () => {
+test('should render an `grid to exist`', () => {
     const wrapper = shallow(<Forecast
         temp1={TEMP1}
         time1={TIME1}
@@ -56,19 +56,3 @@ test('Passes the props through correctly', () => {
     expect(actualTime3).toBe(expectedTime3);
 
 });
-
-// test('should check for classname iconHeader', () => {
-//   const wrapper = shallow(<Weather
-//     location={LOCATION}
-//     cTemp={C_TEMP}
-//     cTempMax={WEATHERNICENAME}
-//     cTempMin={C_TEMP_MIN}
-//     weatherNiceName={WEATHER_NAME}
-//     icon={ICON}
-//   />);
-
-//   const expected = true;
-//   const actual = wrapper.find('.iconHeader').exists();
-
-//   expect(actual).toBe(expected);
-// });
