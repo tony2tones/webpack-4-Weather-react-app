@@ -10,17 +10,21 @@ const TIME2 = 'TIME2';
 const TEMP3 = 'TEMP3';
 const TIME3 = 'TIME3';
 
+test('should render an `label to exist`', () => {
+    const wrapper = shallow(<Forecast />);
+    const expected = 'Later today';
+
+    const actual = wrapper.find('.label').text();
+
+    expect(actual).toBe(expected);
+});
+
 test('should render an `grid to exist`', () => {
-    const wrapper = shallow(<Forecast
-        temp1={TEMP1}
-        time1={TIME1}
-        temp2={TEMP2}
-        time2={TIME2}
-        temp3={TEMP3}
-        time3={TIME3}
-    />);
+    const wrapper = shallow(<Forecast />);
     const expected = true;
+    
     const actual = wrapper.find('.grid').exists();
+
     expect(actual).toBe(expected);
 });
 
