@@ -72,10 +72,10 @@ class App extends Component {
             var d = new Date();
             var hr = d.getHours();
             var min = d.getMinutes();
-            if(min < 10) {
+            if (min < 10) {
                 min = '0' + min;
             }
-            
+
             this.setState({
                 curTime: hr + ':' + min
             })
@@ -213,7 +213,6 @@ class App extends Component {
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 <div className="card">
-
                     {isLoadingNow && <div className="loader" />}
                     {showWeather &&
                         <Weather
@@ -234,12 +233,15 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                                // onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}
+                            // onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}
                             />}
-                        <button onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}>REFRESH</button>
+                        {isLoadingLater && <div className="loader" />}
+                        {console.log('long',this.state.longitude)}
+                        {showLaterWeather &&
+                            <button onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}>REFRESH</button>
+                        }
                     </div>
                 </div>
-
             </div>
         )
     };
