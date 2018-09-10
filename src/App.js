@@ -123,7 +123,9 @@ class App extends Component {
             .get(App.apiUrl(latitude, longitude))
             .set('accept', 'json')
             .then((res) => {
+                // this.mapForecastData(res.body);
                 this.mapData(res.body);
+                
             })
             .catch(() => {
                 this.setState({ broken: true });
@@ -213,7 +215,7 @@ class App extends Component {
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 <div className="card">
-                    {isLoadingNow && <div className="loader" />}
+                    {isLoadingNow && <div className="card"> <div className="loader" /> </div>}
                     {showWeather &&
                         <Weather
                             cTemp={cTemp}
@@ -223,7 +225,7 @@ class App extends Component {
                             longitude={longitude}
                             latitude={latitude}
                         />}
-                    <div className="card-later">
+                    <div>
                         {isLoadingLater && <div className="loader" />}
                         {showLaterWeather &&
                             <Forecast
