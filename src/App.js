@@ -69,8 +69,15 @@ class App extends Component {
 
     componentDidMount() {
         setInterval(() => {
+            var d = new Date();
+            var hr = d.getHours();
+            var min = d.getMinutes();
+            if(min < 10) {
+                min = '0' + min;
+            }
+            
             this.setState({
-                curTime: new Date().getHours() + ':' + new Date().getMinutes()
+                curTime: hr + ':' + min
             })
         }, 60000)
 
@@ -227,8 +234,9 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                                onClick={this.getLocationNow}
+                                // onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}
                             />}
+                        <button onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}>REFRESH</button>
                     </div>
                 </div>
 

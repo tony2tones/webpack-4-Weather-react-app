@@ -26,7 +26,7 @@ const Forecast = (props) => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => { props.onClick(props.longitude, props.latitude) }}>REFRESH</button>
+            {/* <button onClick={() => { props.onClick(props.longitude, props.latitude) }}>REFRESH</button> */}
         </div>
     )
 }
