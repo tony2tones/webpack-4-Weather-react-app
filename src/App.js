@@ -240,7 +240,16 @@ class App extends Component {
                         {isLoadingLater && <div className="loader" />}
                         {console.log('long',this.state.longitude)}
                         {showLaterWeather &&
-                            <button onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}>REFRESH</button>
+                            <button onClick={() => {
+                                 this.getLocationNow({ 
+                                     longitude:this.state.longitude, 
+                                     latitude: this.state.latitude 
+                                    }); 
+                                    this.getLocationLater({ 
+                                        longitude:this.state.longitude, 
+                                        latitude: this.state.latitude 
+                                       }); 
+                                }}>REFRESH</button>
                         }
                     </div>
                 </div>
