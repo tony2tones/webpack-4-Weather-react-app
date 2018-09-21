@@ -123,9 +123,8 @@ class App extends Component {
             .get(App.apiUrl(latitude, longitude))
             .set('accept', 'json')
             .then((res) => {
-                // this.mapForecastData(res.body);
                 this.mapData(res.body);
-                
+
             })
             .catch(() => {
                 this.setState({ broken: true });
@@ -235,21 +234,19 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                            // onClick={() => { this.getLocationNow(this.state.longitude, this.state.latitude) }}
                             />}
                         {isLoadingLater && <div className="loader" />}
-                        {console.log('long',this.state.longitude)}
                         {showLaterWeather &&
                             <button onClick={() => {
-                                 this.getLocationNow({ 
-                                     longitude:this.state.longitude, 
-                                     latitude: this.state.latitude 
-                                    }); 
-                                    this.getLocationLater({ 
-                                        longitude:this.state.longitude, 
-                                        latitude: this.state.latitude 
-                                       }); 
-                                }}>REFRESH</button>
+                                this.getLocationNow({
+                                    longitude: this.state.longitude,
+                                    latitude: this.state.latitude
+                                });
+                                this.getLocationLater({
+                                    longitude: this.state.longitude,
+                                    latitude: this.state.latitude
+                                });
+                            }}>REFRESH</button>
                         }
                     </div>
                 </div>
