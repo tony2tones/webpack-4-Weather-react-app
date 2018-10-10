@@ -3,8 +3,9 @@ import React from 'react';
 import "./Weather.css";
 
 const Weather = (props) => (
+    let weatherType = props.weatherNiceName;
     <div>
-        {console.log(props)}
+        {console.log(weatherType)}
         <div>{props.time}</div>
         <img src='../src/assets/img/darkimg.png' alt="moon image" width="370px" height="300px"></img>
         <div className="location" data-qa="weather__location">{props.location}</div>
