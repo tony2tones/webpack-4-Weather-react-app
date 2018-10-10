@@ -69,8 +69,15 @@ class App extends Component {
 
     componentDidMount() {
         setInterval(() => {
+            var d = new Date();
+            var hr = d.getHours();
+            var min = d.getMinutes();
+            if (min < 10) {
+                min = '0' + min;
+            }
+
             this.setState({
-                curTime: new Date().getHours() + ':' + new Date().getMinutes()
+                curTime: hr + ':' + min
             })
         }, 60000)
 
@@ -117,6 +124,7 @@ class App extends Component {
             .set('accept', 'json')
             .then((res) => {
                 this.mapData(res.body);
+
             })
             .catch(() => {
                 this.setState({ broken: true });
@@ -206,8 +214,7 @@ class App extends Component {
                 {/* {broken && <BrokenAPIMessage />} */}
                 {showError && <ErrorMessage />}
                 <div className="card">
-
-                    {isLoadingNow && <div className="loader" />}
+                    {isLoadingNow && <div className="card"> <div className="loader" /> </div>}
                     {showWeather &&
                         <Weather
                             cTemp={cTemp}
@@ -217,7 +224,7 @@ class App extends Component {
                             longitude={longitude}
                             latitude={latitude}
                         />}
-                    <div className="card-later">
+                    <div>
                         {isLoadingLater && <div className="loader" />}
                         {showLaterWeather &&
                             <Forecast
@@ -227,11 +234,22 @@ class App extends Component {
                                 temp1={cTemp1}
                                 temp2={cTemp2}
                                 temp3={cTemp3}
-                                onClick={()=>this.getLocationNow(this.state.longitude,this.state.latitude)}
                             />}
+                        {isLoadingLater && <div className="loader" />}
+                        {showLaterWeather &&
+                            <button onClick={() => {
+                                this.getLocationNow({
+                                    longitude: this.state.longitude,
+                                    latitude: this.state.latitude
+                                });
+                                this.getLocationLater({
+                                    longitude: this.state.longitude,
+                                    latitude: this.state.latitude
+                                });
+                            }}>REFRESH</button>
+                        }
                     </div>
                 </div>
-
             </div>
         )
     };

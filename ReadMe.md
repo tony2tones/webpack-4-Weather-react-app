@@ -23,3 +23,31 @@ async getForecastData() {
 			}))
 		});
 	}
+------------------------------------------------------------------
+	- Install `jest` as a `devDependency`.
+
+- Install `enzyme` and `enzyme-adapter-react-16` as `devDependecy`(ies).
+
+- Build yourself a `jest.config.json` file.
+
+- Add a `test-setup.js` file and add it to `jest.config.json`:
+
+```// eslint-disable-next-line import/no-extraneous-dependencies
+
+import { configure } from 'enzyme';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });```
+
+- Add a script for `jest`: `jest --config=./jest.config.json --coverage`
+
+- Build a friggin' test
+
+References:
+
+Jest: https://jestjs.io/
+
+Enzyme: http://airbnb.io/enzyme/ 
