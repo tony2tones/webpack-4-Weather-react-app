@@ -3,6 +3,7 @@ body {
 }  
 .location {
     font-display: 20px;
+    display:block;
     color:white;
     font-family: 'Titillium Web', sans-serif;
     font-weight: bold;
@@ -13,6 +14,7 @@ body {
 }
 .WeatherName {
     color:rgb(209, 204, 204);
+    display:block;
     font-family: 'Titillium Web', sans-serif;
     position: absolute;
     top: 35%;
@@ -21,6 +23,7 @@ body {
 }
   .centered {
     color: #ffffff; 
+    display:block;
     font-family: 'Titillium Web', sans-serif;
     font-size: 90px; 
     font-weight: 550; 
