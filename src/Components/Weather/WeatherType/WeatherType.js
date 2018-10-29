@@ -18,6 +18,9 @@ const WeatherType = props => {
           case "BROKEN CLOUDS":
             imageSource = "../src/assets/img/darkimg.png";
             break;
+            case "LIGHT RAIN":
+            imageSource = "../src/assets/img/darkimg.png";
+            break;
           case "CLEAR SKY":
             imageSource = "../src/assets/img/darkimg.png";
             break;
