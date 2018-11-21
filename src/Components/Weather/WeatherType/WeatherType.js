@@ -19,7 +19,7 @@ const WeatherType = props => {
             imageSource = "../src/assets/img/darkimg.png";
             break;
             case "LIGHT RAIN":
-            imageSource = "../src/assets/img/darkimg.png";
+            imageSource = "../src/assets/img/rainyClouds1.png.png";
             break;
           case "CLEAR SKY":
             imageSource = "../src/assets/img/darkimg.png";
