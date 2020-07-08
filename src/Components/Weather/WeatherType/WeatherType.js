@@ -3,7 +3,7 @@ import React from "react";
 const WeatherType = props => {
   var weatherType = props.weatherType;
   // var weatherType = "LIGHT INTENSITY DRIZZLE RAIN";
-  var imageSource;
+  var imageSource = window.imageSource;
   {
     console.log(weatherType);
   }
@@ -15,17 +15,20 @@ const WeatherType = props => {
             imageSource =
               "https://upload.wikimedia.org/wikipedia/commons/2/29/Big_Fat_Red_Cat.jpg";
             break;
+            case "SCATTERED CLOUDS":
+            imageSource = "https://media.publit.io/file/portImagesReactWeather/darkimg.png";
+            break;
           case "BROKEN CLOUDS":
-            imageSource = "../src/assets/img/darkimg.png";
+            imageSource = "https://media.publit.io/file/portImagesReactWeather/darkimg.png";
             break;
             case "LIGHT RAIN":
-            imageSource = "../src/assets/img/rainyClouds1.png.png";
+            imageSource = "https://media.publit.io/file/portImagesReactWeather/darkimg.png";
             break;
           case "CLEAR SKY":
-            imageSource = "../src/assets/img/darkimg.png";
+            imageSource = "https://media.publit.io/file/portImagesReactWeather/darkimg.png";
             break;
           case "FEW CLOUDS":
-            imageSource = "../src/assets/img/darkimg.png";
+            imageSource = "https://media.publit.io/file/portImagesReactWeather/darkimg.png";
         }
       })()}
       <img src={imageSource} width="370px" height="300px" />
