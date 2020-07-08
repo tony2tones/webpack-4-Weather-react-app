@@ -9,7 +9,7 @@ import ErrorMessage from './Components/ErrorMessages/ErrorMessage';
 import BrokenAPIMessage from './Components/BrokenAPIMessage/BrokenAPIMessage';
 
 // Constant variables
-const apiKEY = '53f9d8e4213222cf517d86dc406d67fc';
+const apiKEY = 'YOUR_API_KEY_HERE';
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 const apiForeCast = 'http://api.openweathermap.org/data/2.5/forecast';
 
