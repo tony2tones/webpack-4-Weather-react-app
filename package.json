@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "antd": "^3.7.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "react-slick": "^0.23.1",
     "save": "^2.3.2",
     "slick-carousel": "^1.8.1",
